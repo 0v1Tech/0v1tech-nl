@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X52F0E74F6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-X52F0E74F6');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0v1Tech | OviTech - Werkende LEGO Game Boy & Electronics Projects</title>
+    <meta name="description" content="0v1Tech (OviTech) - Bouw mee aan een werkende LEGO Game Boy! ESP32 project, custom PCBs, en electronics. 460+ YouTube subscribers. €90 PCB kits coming soon!">
+    <meta name="keywords" content="0v1tech, ovitech, ovi tech, werkende lego game boy, lego gameboy, esp32, retro gaming, custom pcb, lego mod, game boy">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="0v1tech-ovitech-logo.png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.0v1tech.nl/">
+    <meta property="og:title" content="0v1Tech | OviTech - Werkende LEGO Game Boy & Electronics Projects">
+    <meta property="og:description" content="Bouw mee aan een werkende LEGO Game Boy! ESP32 project, custom PCBs, en electronics. 460+ YouTube subscribers. €90 PCB kits coming soon!">
+    <meta property="og:image" content="https://www.0v1tech.nl/werkende-lego-gameboy-ovitech.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.0v1tech.nl/">
+    <meta property="twitter:title" content="0v1Tech | OviTech - Werkende LEGO Game Boy">
+    <meta property="twitter:description" content="Bouw mee aan een werkende LEGO Game Boy! ESP32 project, custom PCBs, en electronics.">
+    <meta property="twitter:image" content="https://www.0v1tech.nl/werkende-lego-gameboy-ovitech.png">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "0v1Tech",
+      "alternateName": ["OviTech", "Ovi Tech"],
+      "url": "https://www.0v1tech.nl",
+      "description": "Electronics maker creating working LEGO Game Boy modifications",
+      "sameAs": [
+        "https://youtube.com/@0v1Tech",
+        "https://tiktok.com/@0v1tech3",
+        "https://instagram.com/0v1tech"
+      ]
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Large watermark logo */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 60vw;
+            height: 60vw;
+            max-width: 800px;
+            max-height: 800px;
+            background-image: url('0v1tech-ovitech-logo-transparent.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transform: translate(-50%, -50%);
+            opacity: 0.03;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #00d4ff;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-image {
+            height: 80px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            color: #00d4ff;
+            font-size: 1.5rem;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: #00d4ff;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1.5px solid transparent;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-links a:hover {
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
+        }
+        
+        main {
+            margin-top: 80px;
+            padding: 2rem 0;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00d4ff, #0099cc, #00ffff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-flow 3s ease infinite, fadeInUp 1s ease;
+            text-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+        }
+        
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            border: 1.5px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            margin: 0 10px;
+        }
+        
+        .cta-button:hover {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: #00d4ff;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
+        }
+
+        .cta-button.youtube {
+            background: rgba(255, 0, 0, 0.1);
+            color: #ff0000;
+            border-color: rgba(255, 0, 0, 0.3);
+        }
+
+        .cta-button.youtube:hover {
+            background: rgba(255, 0, 0, 0.15);
+            border-color: #ff0000;
+        }
+        
+        .projects {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            margin: 3rem 0;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.1);
+        }
+        
+        .projects h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #00d4ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(15px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .project-card:hover::before {
+            left: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #00d4ff;
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.4), 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-card h3 {
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+        
+        .project-card p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 12px;
+            border: 1px solid;
+        }
+
+        .status.active {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            border-color: #4CAF50;
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .status.planning {
+            background: rgba(33, 150, 243, 0.2);
+            color: #2196F3;
+            border-color: #2196F3;
+            box-shadow: 0 0 15px rgba(33, 150, 243, 0.3);
+        }
+        
+        .youtube-section {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            margin: 3rem 0;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.1);
+        }
+        
+        .youtube-section h2 {
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #00d4ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .youtube-section p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #ccc;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00d4ff;
+            display: block;
+        }
+
+        .stat-label {
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .about {
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00d4ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .about p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            opacity: 0.9;
+            color: #ccc;
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                border-bottom: 2px solid #00d4ff;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-image {
+                height: 60px;
+            }
+
+            .stats {
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .cta-button {
+                margin: 10px 5px;
+            }
+
+            /* Fix project card layout for mobile */
+            .project-card[onclick] {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+            }
+
+            .project-card[onclick] > div:last-child {
+                width: 100% !important;
+                max-width: 300px;
+                margin: 1.5rem auto 0 !important;
+            }
+        }
+        
+        /* Circuit board pattern overlay */
+        .circuit-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            z-index: 2;
+            background-image: 
+                linear-gradient(90deg, #00d4ff 1px, transparent 1px),
+                linear-gradient(180deg, #00d4ff 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Circuit pattern overlay -->
+    <div class="circuit-overlay"></div>
+
+    <header>
+        <nav class="container">
+            <div class="logo-container">
+                <img src="0v1tech-ovitech-logo.png" alt="0v1Tech OviTech Logo - Werkende LEGO Game Boy" class="logo-image">
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projecten</a></li>
+                <li><a href="#youtube">YouTube</a></li>
+                <li><a href="#shop">Shop</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Welkom bij 0v1Tech</h1>
+            </div>
+        </section>
+
+        <div class="container">
+            <section id="projects" class="projects">
+                <h2>Projecten</h2>
+                <div class="project-grid">
+                    <div class="project-card" onclick="window.location.href='lego-gameboy.html'" style="cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;">
+                        <div>
+                            <h3>Werkende LEGO Game Boy</h3>
+                            <p>LEGO Game Boy mod om retrogames te spelen.</p>
+                            <span class="status active">In Ontwikkeling</span>
+                        </div>
+                        <div style="width: 200px; height: 200px; border-radius: 12px; overflow: hidden; border: 2px solid rgba(0, 212, 255, 0.3); flex-shrink: 0;">
+                            <img src="werkende-lego-gameboy-ovitech.png" alt="Werkende LEGO Game Boy - OviTech Project" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="youtube" class="youtube-section">
+                <h2>Volg Mijn Projecten</h2>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <a href="https://youtube.com/@0v1Tech" target="_blank" class="cta-button youtube" style="margin: 0; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            <svg style="width: 24px; height: 24px; fill: #FF0000;" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            <span>YouTube</span>
+                        </a>
+                    </div>
+                    <div class="stat-item">
+                        <a href="https://tiktok.com/@0v1tech3" target="_blank" class="cta-button" style="margin: 0; background: rgba(0, 0, 0, 0.3); color: #fff; border-color: rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            <svg style="width: 24px; height: 24px; fill: currentColor;" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                            <span>TikTok</span>
+                        </a>
+                    </div>
+                    <div class="stat-item">
+                        <a href="https://instagram.com/0v1tech" target="_blank" class="cta-button" style="margin: 0; background: rgba(193, 53, 132, 0.1); color: #C13584; border-color: rgba(193, 53, 132, 0.3); display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            <svg style="width: 24px; height: 24px; fill: currentColor;" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="shop" class="youtube-section">
+                <h2>PCB Kits Binnenkort Beschikbaar</h2>
+                <p>Wil je zelf een werkende LEGO Game Boy bouwen? Ik ben bezig met het ontwikkelen van PCB kits die je kunt bestellen.</p>
+                <p style="font-size: 1.5rem; color: #00d4ff; margin: 2rem 0;">Prijs volgt binnenkort!</p>
+                <p>De kits komen binnenkort beschikbaar. Abonneer je op mijn YouTube kanaal om updates te ontvangen over beschikbaarheid en prijzen.</p>
+                <a href="https://youtube.com/@0v1Tech" target="_blank" class="cta-button youtube" style="margin-top: 1rem;">Blijf op de hoogte</a>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 0v1Tech | Built with passion</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+                Socials:
+                <a href="https://youtube.com/@0v1Tech" target="_blank" style="color: #00d4ff; text-decoration: none; margin: 0 8px;">YouTube</a> |
+                <a href="https://instagram.com/0v1tech" target="_blank" style="color: #00d4ff; text-decoration: none; margin: 0 8px;">Instagram</a> |
+                <a href="https://tiktok.com/@0v1tech3" target="_blank" style="color: #00d4ff; text-decoration: none; margin: 0 8px;">TikTok</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced project card interactions
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Advanced scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe project cards for animation
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        console.log('🚀 0v1Tech website initialized!');
+        console.log('🎮 LEGO Game Boy Project');
+        console.log('⚡ Powered by ESP32 & Passion');
+    </script>
+</body>
+</html>
