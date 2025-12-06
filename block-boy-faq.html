@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlockBoy FAQ - Veelgestelde Vragen | 0v1Tech</title>
+    <meta name="description" content="Veelgestelde vragen over de BlockBoy kit. Alles over installatie, specificaties, bestellen en meer.">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Structured Data for Google -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Wat is dit project?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Dit is een drop-in elektronica kit die de officiële LEGO Game Boy set (#72046) volledig functioneel maakt."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Heb ik de LEGO Game Boy set nodig?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ja, deze kit is specifiek ontworpen als upgrade voor de officiële LEGO Nintendo Game Boy set (#72046). De LEGO set is essentieel en wordt niet meegeleverd."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is de installatie moeilijk?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Nee, de kit is ontworpen als een drop-in oplossing. Er is geen solderen nodig. Als u LEGO kunt bouwen, kunt u deze kit installeren."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.0v1tech.nl/block-boy-faq.html">
+    <meta property="og:title" content="BlockBoy FAQ - Veelgestelde Vragen | 0v1Tech">
+    <meta property="og:description" content="Veelgestelde vragen over de BlockBoy kit. Alles over installatie, specificaties, bestellen en meer.">
+    <meta property="og:image" content="https://www.0v1tech.nl/werkende-lego-gameboy-ovitech.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BlockBoy FAQ - Veelgestelde Vragen | 0v1Tech">
+    <meta name="twitter:description" content="Veelgestelde vragen over de BlockBoy kit. Alles over installatie, specificaties, bestellen en meer.">
+    <meta name="twitter:image" content="https://www.0v1tech.nl/werkende-lego-gameboy-ovitech.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 60vw;
+            height: 60vw;
+            max-width: 800px;
+            max-height: 800px;
+            background-image: url('0v1tech-ovitech-logo-transparent.webp');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transform: translate(-50%, -50%);
+            opacity: 0.03;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.5);
+            margin-bottom: 3rem;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .back-button {
+            color: #00d4ff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .back-button:hover {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: #00d4ff;
+        }
+
+        .page-title {
+            flex: 1;
+        }
+
+        .page-title h1 {
+            font-size: 2rem;
+            color: #00d4ff;
+        }
+
+        .page-title .subtitle {
+            font-size: 1rem;
+            color: #999;
+            margin-top: 0.3rem;
+        }
+
+        .faq-section {
+            margin: 2.5rem 0;
+        }
+
+        .faq-section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            font-weight: 600;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-item {
+            background: rgba(0, 0, 0, 0.6);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .faq-question h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #fff;
+            margin: 0;
+        }
+
+        .faq-toggle {
+            color: #00d4ff;
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+        }
+
+        .faq-answer-content {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .faq-answer-content p {
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-answer-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .faq-answer-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-answer-content strong {
+            color: #fff;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .specs-table td {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .specs-table td:first-child {
+            color: #999;
+            width: 40%;
+        }
+
+        .specs-table td:last-child {
+            color: #fff;
+        }
+
+        .disclaimer-box {
+            background: rgba(255, 152, 0, 0.1);
+            border: 1px solid rgba(255, 152, 0, 0.3);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .disclaimer-box strong {
+            color: #FF9800;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            color: #999;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 1.5rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .faq-question {
+                padding: 1rem;
+            }
+
+            .faq-question h3 {
+                font-size: 0.95rem;
+            }
+
+            .faq-answer-content {
+                padding: 0 1rem 1rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="block-boy.html" class="back-button">← Terug naar BlockBoy</a>
+                <div class="page-title">
+                    <h1>Veelgestelde Vragen</h1>
+                    <div class="subtitle">BlockBoy Kit</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Algemene Vragen -->
+        <section class="faq-section">
+            <h2>Algemene Vragen</h2>
+
+            <div class="faq-item active">
+                <div class="faq-question">
+                    <h3>Wat is dit project?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Dit is een drop-in elektronica kit die de officiële LEGO Game Boy set (#72046) volledig functioneel maakt. De kit transformeert het LEGO displaystuk in een écht werkende, draagbare Game Boy die echte Game Boy en Game Boy Color spellen kan spelen!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Heb ik de LEGO Game Boy set nodig?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Ja, deze kit is specifiek ontworpen als upgrade voor de officiële <a href="https://www.lego.com/en-us/product/game-boy-72046" target="_blank" style="color: #00d4ff;">LEGO Nintendo Game Boy set (#72046)</a>. De LEGO set is essentieel en wordt niet meegeleverd.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technische Specificaties -->
+        <section class="faq-section">
+            <h2>Technische Specificaties</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Wat zijn de specificaties?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <table class="specs-table">
+                            <tr><td>Processor</td><td>ESP32-S3 microcontroller</td></tr>
+                            <tr><td>Emulator</td><td>Retro-Go (Game Boy, GBC, Game & Watch, NES, Sega, DOOM)</td></tr>
+                            <tr><td>Display</td><td>2,8" IPS-scherm met achtergrondverlichting (ILI9341)</td></tr>
+                            <tr><td>Batterij</td><td>Oplaadbare lithiumbatterij, ~1,5 uur speeltijd</td></tr>
+                            <tr><td>Opladen</td><td>USB-C poort</td></tr>
+                            <tr><td>Opslag</td><td>MicroSD-kaart (niet inbegrepen)</td></tr>
+                            <tr><td>Audio</td><td>Ingebouwde speaker met fysieke volumeknop</td></tr>
+                            <tr><td>Helderheid</td><td>Instelbaar met fysieke knoppen</td></tr>
+                            <tr><td>Besturing</td><td>Volledig functionele knoppen en D-pad</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Welke games kan de kit spelen?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>De kit kan Game Boy (DMG) en Game Boy Color (GBC) games spelen via ROM-bestanden die zijn opgeslagen op een microSD-kaart.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Ondersteunt de kit echte Game Boy cartridges?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Nee. Deze versie maakt gebruik van emulatie met ROM-bestanden op een SD-kaart. Dit houdt de kit simpel en behoudt de integriteit van vintage consoles.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Kan de kit link kabel multiplayer?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Nee, de Link kabel-functionaliteit wordt niet ondersteund.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Hoe lang gaat de batterij mee?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Ongeveer 1,5 uur gameplay. De batterijduur kan variëren afhankelijk van de ingestelde schermhelderheid en het gebruik.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Hoe laad ik de kit op?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Opladen gaat via de USB-C poort die zich boven het volumewiel bevindt. Een standaard USB-C kabel is alles wat u nodig heeft.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installatie & Montage -->
+        <section class="faq-section">
+            <h2>Installatie & Montage</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Is de installatie moeilijk?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Nee, de kit is ontworpen als een drop-in oplossing. Er is geen solderen nodig. De installatie vereist wel kleine interne aanpassingen aan het LEGO-model, zoals het verplaatsen van enkele bestaande bouwstenen, om ruimte te maken voor de elektronica.</p>
+                        <p>Als u LEGO kunt bouwen, kunt u deze kit installeren.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Wat zit er in de kit?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>De kit bevat alle elektronische onderdelen en aansluitingen die u nodig heeft om uw LEGO-model om te bouwen:</p>
+
+                        <p><strong>Hoofdprintplaat (PCB)</strong> met daarop:</p>
+                        <ul>
+                            <li>ESP32-S3 microcontroller</li>
+                            <li>2,8" IPS-display</li>
+                            <li>Oplaadbare lithiumbatterij</li>
+                            <li>Aan/uit-schakelaar</li>
+                            <li>Fysieke knoppen voor helderheids- en volumeregeling</li>
+                        </ul>
+
+                        <p><strong>Besturingsprintplaten (PCBs):</strong></p>
+                        <ul>
+                            <li>D-pad PCB: Voor de richtingsknoppen</li>
+                            <li>A/B PCB: Voor de A- en B-actieknoppen</li>
+                            <li>Select/Start PCB: Voor de Select- en Start-knoppen</li>
+                        </ul>
+
+                        <p><strong>Aansluitingen:</strong></p>
+                        <ul>
+                            <li>Verschillende flatcables (flexibele lintkabels) voor plug-and-play verbindingen</li>
+                        </ul>
+
+                        <p><strong>Keuze bij bestelling:</strong> Voor de D-pad en A/B-knoppen kunt u een keuze maken tussen tastbare klikknoppen (duidelijke 'klik') of membraanknoppen (zachter, traditioneel Game Boy gevoel).</p>
+
+                        <p><strong>Niet inbegrepen:</strong></p>
+                        <ul>
+                            <li>LEGO Game Boy set (#72046)</li>
+                            <li>MicroSD-kaart</li>
+                            <li>Gamebestanden (ROMs)</li>
+                            <li>USB-C oplaadkabel</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Heb ik gereedschap nodig?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Nee, er is geen speciaal gereedschap vereist. Alles is plug-and-play. U heeft alleen de LEGO-handleiding en de instructies van mijn kit nodig.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Hoe lang duurt de installatie?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>De meeste gebruikers voltooien de installatie in minder dan 60 minuten.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bestellen & Verzending -->
+        <section class="faq-section">
+            <h2>Bestellen & Verzending</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Wanneer wordt de kit beschikbaar?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>De lancering staat gepland voor begin 2026.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Hoeveel gaat de kit kosten?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>De geschatte prijs wordt binnenkort bekendgemaakt.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Waar verzend ik naartoe?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <ul>
+                            <li><strong>Lancering:</strong> De eerste batches zullen beschikbaar zijn in Nederland.</li>
+                            <li><strong>Begin 2026:</strong> Uitbreiding naar de Europese Unie (EU).</li>
+                            <li><strong>Later:</strong> Ik onderzoek de mogelijkheden voor internationale verzending buiten de EU.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Juridisch & Ethiek -->
+        <section class="faq-section">
+            <h2>Juridisch & Ethiek</h2>
+
+            <div class="disclaimer-box">
+                <p><strong>Belangrijke Aansprakelijkheidsverklaring (Disclaimer)</strong></p>
+                <p>Mijn kit is een onafhankelijk product. Dit project is op geen enkele wijze verbonden, geassocieerd, geautoriseerd, onderschreven door of officieel verbonden met de LEGO Groep of Nintendo Co., Ltd. De handelsmerken "LEGO", "Nintendo", "Game Boy" en alle gerelateerde namen, merken en afbeeldingen zijn eigendom van hun respectievelijke houders.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Is dit legaal?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Ja. De hardware kit zelf is volledig legaal. Echter:</p>
+                        <ul>
+                            <li>Emulators zijn legaal.</li>
+                            <li>U moet de originele spellen bezitten voor de ROM-bestanden die u gebruikt.</li>
+                            <li>Ik lever, verkoop of link niet naar auteursrechtelijk beschermde gamebestanden.</li>
+                            <li>Dit product is uitsluitend bedoeld voor persoonlijk gebruik.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Verkoop ik ROMs?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Nee. Ik lever, verkoop of distribueer géén auteursrechtelijk beschermde gamebestanden. Gebruikers zijn zelf verantwoordelijk voor het legaal verkrijgen van hun spellen.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Is dit open source?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>De <a href="https://github.com/ducalex/retro-go" target="_blank" style="color: #00d4ff;">Retro-Go software</a> die de kit gebruikt is open source. De hardware/PCB ontwerpen van mijn kit zijn momenteel niet open source. Ik overweeg om designbestanden in de toekomst vrij te geven.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community -->
+        <section class="faq-section">
+            <h2>Community</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Waar kan ik de kit in actie zien?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Bekijk mijn <a href="https://youtube.com/@0v1Tech" target="_blank" style="color: #00d4ff;">YouTube-kanaal</a> voor bouwvideo's, gameplay-demo's en de laatste updates!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Kan ik mijn build delen?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Absoluut! Tag mij op social media – ik zie uw creaties heel graag!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Is er een community Discord/forum?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Wordt binnenkort aangekondigd.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 0v1Tech | <a href="index.html" style="color: #00d4ff; text-decoration: none;">Home</a> | <a href="block-boy.html" style="color: #00d4ff; text-decoration: none;">BlockBoy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        console.log('BlockBoy FAQ Page Loaded');
+    </script>
+</body>
+</html>
