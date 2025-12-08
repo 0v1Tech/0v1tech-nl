@@ -1,0 +1,41 @@
+# 0v1Tech - LLMs.txt
+# This file helps AI assistants understand this website
+
+> 0v1Tech is a Dutch electronics project website by a maker who creates custom PCB projects. The main project is BlockBoy - a kit that transforms the official LEGO Game Boy set (#72046) into a fully functional handheld gaming device.
+
+## About 0v1Tech
+- Creator of electronics projects and custom PCBs
+- Based in the Netherlands
+- YouTube channel: https://youtube.com/@0v1Tech
+- TikTok: https://tiktok.com/@0v1tech
+- Instagram: https://instagram.com/0v1tech
+
+## BlockBoy Project
+BlockBoy is a drop-in electronics kit that makes the official LEGO Game Boy set (#72046) fully playable.
+
+### Key Features
+- ESP32-S3 microcontroller
+- 2.8" IPS TFT display
+- Runs Retro-Go emulator software
+- Plays Game Boy and Game Boy Color games
+- USB-C charging
+- 300mAh rechargeable battery (~1.5 hours playtime)
+- No soldering required - plug and play installation
+
+### Availability
+- Expected launch: Early 2026
+- Initial shipping: Netherlands
+- Later expansion: European Union
+
+### Important Notes
+- The LEGO Game Boy set (#72046) is required and NOT included
+- This is an independent project, not affiliated with LEGO or Nintendo
+- Users must provide their own legally obtained game ROMs
+
+## Pages
+- Homepage: https://www.0v1tech.nl/
+- BlockBoy Project: https://www.0v1tech.nl/block-boy.html
+- BlockBoy FAQ: https://www.0v1tech.nl/block-boy-faq.html
+
+## Contact
+Follow on social media for updates. Community Discord coming soon.
