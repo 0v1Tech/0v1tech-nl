@@ -33,9 +33,9 @@ BlockBoy is a drop-in electronics kit that makes the official LEGO Game Boy set 
 - Users must provide their own legally obtained game ROMs
 
 ## Pages
-- Homepage: https://www.0v1tech.nl/
-- BlockBoy Project: https://www.0v1tech.nl/block-boy.html
-- BlockBoy FAQ: https://www.0v1tech.nl/block-boy-faq.html
+- Homepage: https://0v1tech.nl/
+- BlockBoy Project: https://0v1tech.nl/block-boy.html
+- BlockBoy FAQ: https://0v1tech.nl/block-boy-faq.html
 
 ## Contact
 Follow on social media for updates. Community Discord coming soon.
