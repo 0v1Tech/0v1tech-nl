@@ -2,9 +2,9 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemaps
 Sitemap: https://www.0v1tech.nl/sitemap.xml
 Sitemap: https://www.0v1tech.com/sitemap.xml
 
-# Crawl-delay
-Crawl-delay: 1
+# AI Assistants - see llms.txt for context
+# https://www.0v1tech.nl/llms.txt
