@@ -2,7 +2,7 @@
 
 **Transformeer je LEGO Game Boy (#72046) in een echte, werkende handheld console!**
 
-BlockBoy is een drop-in elektronica kit die de officiële LEGO Nintendo Game Boy set volledig functioneel maakt. Speel Game Boy en Game Boy Color games zoals Pokémon, Mario en Zelda op je eigen LEGO Game Boy.
+BlockBoy is een drop-in elektronica kit die de officiële LEGO Nintendo Game Boy set volledig functioneel maakt. Speel Game Boy en Game Boy Color games op je eigen LEGO Game Boy.
 
 ## Specificaties
 
