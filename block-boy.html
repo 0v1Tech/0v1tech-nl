@@ -94,50 +94,122 @@
         header {
             background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(10px);
-            padding: 1.5rem 0;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
             border-bottom: 1px solid rgba(0, 212, 255, 0.5);
-            margin-bottom: 3rem;
         }
 
-        .header-content {
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
             display: flex;
             align-items: center;
-            gap: 2rem;
         }
 
-        .back-button {
-            color: #00d4ff;
-            text-decoration: none;
-            font-size: 1.5rem;
+        .logo-image {
+            height: 80px;
+            width: auto;
             transition: all 0.3s ease;
-            padding: 8px 16px;
-            border-radius: 8px;
-            border: 1.5px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0;
+        }
+
+        .nav-links li {
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links li:last-child {
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            padding: 12px 20px;
+            display: block;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #00d4ff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00d4ff;
             background: rgba(0, 212, 255, 0.05);
         }
 
-        .back-button:hover {
-            background: rgba(0, 212, 255, 0.15);
-            border-color: #00d4ff;
-            transform: translateX(-5px);
+        .nav-links a:hover::after {
+            width: 80%;
         }
 
-        .project-title {
-            flex: 1;
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            margin-left: 1rem;
         }
 
-        .project-title h1 {
+        .lang-switch:hover {
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        main {
+            margin-top: 120px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-header h1 {
             font-size: 2.5rem;
             color: #00d4ff;
         }
 
-        .project-title .subtitle {
+        .page-header .subtitle {
             font-size: 1.2rem;
             color: #999;
-            margin-top: 0.3rem;
+            margin-top: 0.5rem;
         }
 
-        .project-title .status {
+        .page-header .status {
             display: inline-block;
             font-size: 0.9rem;
             margin-top: 8px;
@@ -341,7 +413,7 @@
         }
 
         @media (max-width: 768px) {
-            .project-title h1 {
+            .page-header h1 {
                 font-size: 1.8rem;
             }
 
@@ -366,32 +438,52 @@
                 font-size: 1.1rem;
             }
 
-            .header-content {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
+            .nav-links {
+                display: none;
+            }
+
+            .lang-switch {
+                display: none;
+            }
+
+            .logo-image {
+                height: 60px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="back-button">← Terug</a>
-                <div class="project-title">
-                    <h1>BlockBoy</h1>
-                    <div class="subtitle">Werkende LEGO Game Boy</div>
-                    <span class="status">In ontwikkeling</span>
-                </div>
-                <a href="https://0v1tech.com/block-boy.html" class="back-button" style="margin-left: auto;">EN</a>
+        <nav class="container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="0v1tech-ovitech-logo.png" alt="0v1Tech Logo" class="logo-image">
+                </a>
             </div>
-        </div>
+            <ul class="nav-links">
+                <li><a href="#over">Over</a></li>
+                <li><a href="#specs">Specificaties</a></li>
+                <li><a href="#videos">Video's</a></li>
+                <li><a href="#fotos">Foto's</a></li>
+                <li><a href="#progressie">Progressie</a></li>
+                <li><a href="#firmware">Firmware</a></li>
+                <li><a href="block-boy-faq.html">FAQ</a></li>
+            </ul>
+            <a href="https://0v1tech.com/block-boy.html" class="lang-switch">
+                <svg style="width: 18px; height: 18px; fill: currentColor;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                EN
+            </a>
+        </nav>
     </header>
 
     <main class="container">
+        <div class="page-header">
+            <h1>BlockBoy</h1>
+            <div class="subtitle">Werkende LEGO Game Boy</div>
+            <span class="status">In ontwikkeling</span>
+        </div>
         <!-- Over het Project -->
-        <section class="section">
+        <section id="over" class="section">
             <h2>Het verhaal achter de BlockBoy</h2>
             <p>In 1989 kwam de originele Game Boy uit, een iconische handheld console die gaming revolutioneerde. Toen LEGO in juli 2025 hun Game Boy set (#72046) onthulde, was ik meteen verkocht.</p>
 
@@ -401,7 +493,7 @@
         </section>
 
         <!-- Specificaties -->
-        <section class="section">
+        <section id="specs" class="section">
             <h2>Specificaties</h2>
             <div class="specs-grid">
                 <div class="spec-item" style="cursor: pointer;" onclick="window.open('https://www.espressif.com/en/products/socs/esp32-s3', '_blank')">
@@ -435,7 +527,7 @@
         </section>
 
         <!-- Video's -->
-        <section class="section">
+        <section id="videos" class="section">
             <h2>Video's</h2>
             <div class="video-grid">
                 <div class="video-card" style="display: flex; flex-direction: column; justify-content: center;">
@@ -525,7 +617,7 @@
         </section>
 
         <!-- Foto's -->
-        <section class="section">
+        <section id="fotos" class="section">
             <h2>Foto's</h2>
             <p>Een kijkje achter de schermen van het bouwproces.</p>
             <div class="photo-grid">
@@ -545,7 +637,7 @@
         </section>
 
         <!-- Progressie Tijdlijn -->
-        <section class="section">
+        <section id="progressie" class="section">
             <h2>Progressie</h2>
             <div class="timeline">
                 <div class="timeline-item completed">
@@ -561,8 +653,26 @@
             </div>
         </section>
 
+        <!-- Firmware -->
+        <section id="firmware" class="section">
+            <h2>Firmware</h2>
+            <p>De BlockBoy draait op <a href="https://github.com/ducalex/retro-go" target="_blank" style="color: #00d4ff;">Retro-Go</a> (GPL-2.0).</p>
+
+            <div class="specs-grid" style="margin-top: 1.5rem;">
+                <a href="flash/flash.html" class="spec-item" style="text-decoration: none; cursor: pointer;">
+                    <div class="spec-label">Update</div>
+                    <div class="spec-value">BlockBoy Flasher</div>
+                    <div style="font-size: 0.85rem; color: #999; margin-top: 0.5rem;">Flash firmware via je browser</div>
+                </a>
+                <a href="https://github.com/0v1Tech/blockboy-firmware" target="_blank" class="spec-item" style="text-decoration: none; cursor: pointer;">
+                    <div class="spec-label">Broncode</div>
+                    <div class="spec-value">BlockBoy Firmware</div>
+                </a>
+            </div>
+        </section>
+
         <!-- FAQ Link -->
-        <section class="section" style="text-align: center;">
+        <section id="faq" class="section" style="text-align: center;">
             <h2>Vragen?</h2>
             <p>Bekijk de veelgestelde vragen voor meer informatie over de kit, installatie en bestellen.</p>
             <a href="block-boy-faq.html" style="display: inline-block; margin-top: 1rem; padding: 12px 24px; background: rgba(0, 212, 255, 0.1); color: #00d4ff; text-decoration: none; border-radius: 8px; border: 1px solid rgba(0, 212, 255, 0.3); transition: all 0.3s ease;">Bekijk FAQ →</a>
