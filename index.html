@@ -17,7 +17,10 @@
     <link rel="alternate" hreflang="nl" href="https://0v1tech.nl/" />
     <link rel="alternate" hreflang="en" href="https://0v1tech.com/" />
     <link rel="alternate" hreflang="x-default" href="https://0v1tech.com/" />
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 
     <!-- Structured Data for Google --> 
     <script type="application/ld+json">
@@ -129,26 +132,69 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 0;
         }
-        
+
+        .nav-links li {
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links li:last-child {
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         .nav-links a {
             color: #fff;
             text-decoration: none;
             transition: all 0.3s ease;
             font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 8px;
-            border: 1.5px solid transparent;
-            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            display: block;
+            position: relative;
         }
-        
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #00d4ff;
+            transition: width 0.3s ease;
+        }
+
         .nav-links a:hover {
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .nav-links a:hover::after {
+            width: 80%;
+        }
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+        }
+
+        .lang-switch:hover {
             color: #00d4ff;
             background: rgba(0, 212, 255, 0.1);
             border-color: rgba(0, 212, 255, 0.3);
         }
-        
+
         main {
             margin-top: 80px;
             padding: 2rem 0;
@@ -404,7 +450,11 @@
             .nav-links {
                 display: none;
             }
-            
+
+            .lang-switch {
+                display: none;
+            }
+
             .project-grid {
                 grid-template-columns: 1fr;
             }
@@ -452,8 +502,11 @@
                 <li><a href="#youtube">YouTube</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#shop">Shop</a></li>
-                <li><a href="https://0v1tech.com/" class="lang-switch">EN</a></li>
             </ul>
+            <a href="https://0v1tech.com/" class="lang-switch">
+                <svg style="width: 18px; height: 18px; fill: currentColor;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                EN
+            </a>
         </nav>
     </header>
 
