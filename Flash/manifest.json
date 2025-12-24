@@ -7,7 +7,7 @@
       "chipFamily": "ESP32-S3",
       "parts": [
         {
-          "path": "https://oviteck.nl/0v1Tech%20-%20BlockBoy%20v1.0.img",
+          "path": "https://0v1tech.com/Flash/0v1Tech%20-%20BlockBoy%20v1.0.img",
           "offset": 0
         }
       ]
