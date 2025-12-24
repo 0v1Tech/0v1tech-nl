@@ -1,5 +1,5 @@
 {
-  "name": "LEGO Game Boy - Retro-Go",
+  "name": "0v1Tech - BlockBoy",
   "version": "1.0.0",
   "new_install_prompt_erase": true,
   "builds": [
@@ -7,7 +7,7 @@
       "chipFamily": "ESP32-S3",
       "parts": [
         {
-          "path": "https://oviteck.nl/lego-gameboy.img",
+          "path": "https://oviteck.nl/0v1Tech%20-%20BlockBoy%20v1.0.img",
           "offset": 0
         }
       ]
